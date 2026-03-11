@@ -1,0 +1,6 @@
+{
+  "name": "post",
+  "version": "1.0.0",
+  "description": "Email management via the Post IMAP CLI.",
+  "author": "Oliver Drobnik"
+}
