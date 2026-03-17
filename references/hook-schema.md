@@ -24,15 +24,15 @@ The daemon writes a JSON object to the hook command's stdin:
   "server": "work",
   "mailbox": "INBOX",
   "message": {
-    "uid": 13106,
-    "from": "flo@lindy.ai",
-    "to": ["oliver@drobnik.com"],
-    "subject": "Re: Staff Software Engineer - Lindy",
+    "uid": 12345,
+    "from": "sender@example.com",
+    "to": ["you@example.com"],
+    "subject": "Re: Project Update",
     "date": "2026-03-17T06:00:37.000Z",
     "markdown": "Markdown-formatted email body...",
     "attachments": [
       {
-        "filename": "resume.pdf",
+        "filename": "document.pdf",
         "contentType": "application/pdf",
         "disposition": "attachment",
         "section": "2",
@@ -40,7 +40,7 @@ The daemon writes a JSON object to the hook command's stdin:
         "encoding": "base64"
       }
     ],
-    "messageId": "<95126369-956C-4C80-A17C-0886FE01B4F5@drobnik.com>",
+    "messageId": "<abc123-def456-ghi789@example.com>",
     "references": "<previous-message-id@example.com>"
   }
 }
@@ -96,7 +96,7 @@ Post daemon logs stdout and stderr from the hook.
 ### Bash
 ```bash
 #!/bin/bash
-# ~/clawd/scripts/process_email.sh
+# ~/scripts/process_email.sh
 
 # Read JSON from stdin
 PAYLOAD=$(cat)
@@ -121,7 +121,7 @@ exit 2
 ### Python
 ```python
 #!/usr/bin/env python3
-# ~/clawd/scripts/process_email.py
+# ~/scripts/process_email.py
 
 import sys
 import json
@@ -163,7 +163,7 @@ In `~/.post.json`:
     "work": {
       "idle": true,
       "idleMailbox": "INBOX",
-      "command": "/Users/oliver/clawd/scripts/process_email.sh"
+      "command": "/path/to/your/scripts/process_email.sh"
     }
   }
 }
