@@ -1,6 +1,14 @@
 ---
-name: post
-description: Manage IMAP email with the Post CLI and local daemon. Use when reading, searching, fetching, drafting, replying, reply-all, moving, archiving, trashing, exporting, or downloading attachments from email accounts configured in Post. Also use when setting up Post credentials, starting the daemon, or restricting agents to specific mail servers with scoped Post API keys.
+metadata:
+  name: post
+  version: 1.1.0
+  description: Manage IMAP email with the Post CLI and local daemon. Use when reading, searching, fetching, drafting, replying, reply-all, moving, archiving, trashing, exporting, or downloading attachments from email accounts configured in Post. Also use when setting up Post credentials, starting the daemon, or restricting agents to specific mail servers with scoped Post API keys.
+  author: Oliver Drobnik
+  tags:
+    - email
+    - imap
+    - post
+    - cli
 ---
 
 # Post
