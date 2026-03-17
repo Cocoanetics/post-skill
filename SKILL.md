@@ -9,18 +9,9 @@ description: >
   mail servers with scoped Post API keys.
 homepage: https://github.com/Cocoanetics/Post
 metadata:
-  moltbot:
+  openclaw:
     emoji: "🏤"
     os: ["darwin"]
-    requires:
-      bins: ["post", "postd"]
-    install:
-      - id: brew
-        kind: brew
-        formula: cocoanetics/tap/post
-        bins: ["post", "postd"]
-        label: "Install post (brew)"
-  openclaw:
     requires:
       bins: ["post", "postd"]
     install:
