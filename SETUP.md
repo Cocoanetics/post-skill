@@ -190,7 +190,60 @@ post list --server personal --mailbox INBOX --limit 5 --token <work-only-token>
 
 Expected result: Post rejects the request because the token is not authorized for that server.
 
-## 8. Recommended agent pattern
+## 8. Optional: Auto-start with LaunchAgent
+
+To have `postd` auto-start on login and restart if it crashes:
+
+1. Create `~/Library/LaunchAgents/com.cocoanetics.postd.plist`:
+
+   ```bash
+   cat > ~/Library/LaunchAgents/com.cocoanetics.postd.plist <<'EOF'
+   <?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+   <plist version="1.0">
+   <dict>
+       <key>Label</key>
+       <string>com.cocoanetics.postd</string>
+       <key>ProgramArguments</key>
+       <array>
+           <string>/opt/homebrew/bin/postd</string>
+           <string>start</string>
+           <string>--foreground</string>
+       </array>
+       <key>RunAtLoad</key>
+       <true/>
+       <key>KeepAlive</key>
+       <true/>
+       <key>StandardErrorPath</key>
+       <string>/tmp/postd.log</string>
+   </dict>
+   </plist>
+   EOF
+   ```
+
+2. Load it:
+
+   ```bash
+   launchctl load ~/Library/LaunchAgents/com.cocoanetics.postd.plist
+   ```
+
+3. Verify:
+
+   ```bash
+   launchctl list | grep postd
+   postd status
+   ```
+
+To stop or restart:
+
+```bash
+launchctl unload ~/Library/LaunchAgents/com.cocoanetics.postd.plist
+launchctl load ~/Library/LaunchAgents/com.cocoanetics.postd.plist
+```
+
+See [Post Documentation/Daemon.md](https://github.com/Cocoanetics/Post/blob/main/Documentation/Daemon.md) for full details.
+
+## 9. Recommended agent pattern
 
 For most agents:
 1. give them a scoped token
