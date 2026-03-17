@@ -1,6 +1,6 @@
 ---
 name: post
-version: 1.1.0
+version: 1.5.0
 description: >
   Manage IMAP email with the Post CLI and local daemon. Use when reading, searching,
   fetching, drafting, replying, reply-all, moving, archiving, trashing, exporting,
