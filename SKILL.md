@@ -9,6 +9,10 @@ metadata:
     - imap
     - post
     - cli
+  openclaw:
+    requires:
+      brew: cocoanetics/tap/post
+      macos: ">=14.0"
 ---
 
 # Post
