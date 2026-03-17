@@ -1,18 +1,34 @@
 ---
+name: post
+version: 1.1.0
+description: >
+  Manage IMAP email with the Post CLI and local daemon. Use when reading, searching,
+  fetching, drafting, replying, reply-all, moving, archiving, trashing, exporting,
+  or downloading attachments from email accounts configured in Post. Also use when
+  setting up Post credentials, starting the daemon, or restricting agents to specific
+  mail servers with scoped Post API keys.
+homepage: https://github.com/Cocoanetics/Post
 metadata:
-  name: post
-  version: 1.1.0
-  description: Manage IMAP email with the Post CLI and local daemon. Use when reading, searching, fetching, drafting, replying, reply-all, moving, archiving, trashing, exporting, or downloading attachments from email accounts configured in Post. Also use when setting up Post credentials, starting the daemon, or restricting agents to specific mail servers with scoped Post API keys.
-  author: Oliver Drobnik
-  tags:
-    - email
-    - imap
-    - post
-    - cli
+  moltbot:
+    emoji: "🏤"
+    os: ["darwin"]
+    requires:
+      bins: ["post", "postd"]
+    install:
+      - id: brew
+        kind: brew
+        formula: cocoanetics/tap/post
+        bins: ["post", "postd"]
+        label: "Install post (brew)"
   openclaw:
     requires:
-      brew: cocoanetics/tap/post
-      macos: ">=14.0"
+      bins: ["post", "postd"]
+    install:
+      - id: brew
+        kind: brew
+        formula: cocoanetics/tap/post
+        bins: ["post", "postd"]
+        label: "Install post via Homebrew"
 ---
 
 # Post
